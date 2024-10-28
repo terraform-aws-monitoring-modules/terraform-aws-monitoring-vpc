@@ -29,7 +29,7 @@ This Terraform module creates CloudWatch Log Metric Filters and associated Alarm
 ```hcl
 module "aws_monitoring_vpc" {
   source                         = "path/to/module"
-  vpc_ids                       = ["vpc-12345678", "vpc-87654321"]
+  vpc_ids                        = ["vpc-12345678", "vpc-87654321"]
   cw_log_group_name              = "the-cloudtrail-log-group"
   cw_metric_filter_alarm_actions = ["arn:aws:sns:region:account-id:sns-topic"]
 }
@@ -39,9 +39,9 @@ module "aws_monitoring_vpc" {
 ```hcl
 module "aws_monitoring_vpc" {
   source                                     = "path/to/module"
-  vpc_ids                                   = ["vpc-12345678", "vpc-87654321"]
-  vpc_event_names                           = ["DeleteVpc", "ModifyVpcAttribute"]
-  cw_log_group_name                         = "the-cloudtrail-log-group"
+  vpc_ids                                    = ["vpc-12345678", "vpc-87654321"]
+  vpc_event_names                            = ["DeleteVpc", "ModifyVpcAttribute"]
+  cw_log_group_name                          = "the-cloudtrail-log-group"
   cw_metric_filter_namespace                 = "VPC/Monitoring"
   cw_metric_filter_value                     = "1"
   cw_metric_filter_alarm_comparison_operator = "GreaterThanOrEqualToThreshold"
