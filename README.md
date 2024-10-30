@@ -1,4 +1,15 @@
-# aws-monitoring-vpc
+<p align="center">
+  <a href="https://github.com/terraform-trailwatch-modules/terraform-trailwatch-vpc" title="Terraform Trailwatch Modules"><img src="https://raw.githubusercontent.com/terraform-trailwatch-modules/art/refs/heads/main/logo.jpg" height="100" alt="Terraform Trailwatch Modules"></a>
+</p>
+
+<h1 align="center">Virtual Private Cloud</h1>
+
+<p align="center">
+  <a href="https://github.com/terraform-trailwatch-modules/terraform-trailwatch-vpc/releases" title="Releases"><img src="https://img.shields.io/badge/Release-1.0.1-1d1d1d?style=for-the-badge" alt="Release"></a>
+  <a href="https://github.com/terraform-trailwatch-modules/terraform-trailwatch-vpc/blob/main/LICENSE" title="License"><img src="https://img.shields.io/badge/License-MIT-1d1d1d?style=for-the-badge" alt="License"></a>
+</p>
+
+## About
 This Terraform module creates CloudWatch Log Metric Filters and associated Alarms for monitoring Virtual Private Clouds (VPCs) based on specified event names. It helps ensure that critical changes to VPCs are monitored effectively and alerts are sent to a pre-existing SNS topic.
 
 ## Features
@@ -27,8 +38,8 @@ This Terraform module creates CloudWatch Log Metric Filters and associated Alarm
 
 ## Simple Example
 ```hcl
-module "aws_monitoring_vpc" {
-  source                         = "path/to/module"
+module "terraform_trailwatch_vpc" {
+  source                         = "terraform-trailwatch-modules/vpc/trailwatch"
   vpc_ids                        = ["vpc-12345678", "vpc-87654321"]
   cw_log_group_name              = "the-cloudtrail-log-group"
   cw_metric_filter_alarm_actions = ["arn:aws:sns:region:account-id:sns-topic"]
@@ -37,8 +48,8 @@ module "aws_monitoring_vpc" {
 
 ## Advanced Example
 ```hcl
-module "aws_monitoring_vpc" {
-  source                                     = "path/to/module"
+module "terraform_trailwatch_vpc" {
+  source                                     = "terraform-trailwatch-modules/vpc/trailwatch"
   vpc_ids                                    = ["vpc-12345678", "vpc-87654321"]
   vpc_event_names                            = ["DeleteVpc", "ModifyVpcAttribute"]
   cw_log_group_name                          = "the-cloudtrail-log-group"
